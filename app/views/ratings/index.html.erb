@@ -1,0 +1,9 @@
+<h1> Ratings </h1>
+
+<ul>
+  <% @ratings.each do |rating| %>
+    <li><%= link_to rating, rating.post %></li>
+  <% end %>
+</ul>
+
+<%= link_to "New rating", new_rating_path %>
