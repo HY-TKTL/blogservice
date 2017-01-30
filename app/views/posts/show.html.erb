@@ -3,7 +3,7 @@
 <h1>
   <%= @post.title %>
 </h1>
-<strong>Added at <%= @post.created_at %></strong>
+<strong>Added at <%= @post.created_at %> by <%= link_to @post.user.username, @post.user %></strong>
 
 <p class="content">
   <%= @post.content %>

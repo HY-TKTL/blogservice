@@ -1,6 +1,8 @@
 class Post < ActiveRecord::Base
 
   has_many :ratings
+  belongs_to :user
+
 
   def formatted_content
     if content.split.size > 4
@@ -8,6 +10,11 @@ class Post < ActiveRecord::Base
     else
       content
     end
+  end
+
+  def average_rating
+    return 0 if ratings.empty?
+    ratings.map(&:score).inject(:+) / ratings.count.to_f
   end
 
 end
