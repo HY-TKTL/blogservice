@@ -3,6 +3,7 @@ class Post < ActiveRecord::Base
   has_many :ratings
   belongs_to :user
 
+  validates :title, uniqueness: true
 
   def formatted_content
     if content.split.size > 4
